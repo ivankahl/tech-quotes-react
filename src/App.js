@@ -9,7 +9,7 @@ import RefreshButton from "./components/RefreshButton";
 
 export default class App extends React.Component {
   async retrieveQuote() {
-    const response = await axios.get("");
+    const response = await axios.get("/.netlify/functions/getQuotes");
 
     console.log(response.data);
   }
