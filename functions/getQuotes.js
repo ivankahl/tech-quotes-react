@@ -2,6 +2,11 @@ const axios = require("axios");
 const https = require("https");
 
 exports.handler = async event => {
+  return {
+    statusCode: 200,
+    body: "Test"
+  };
+
   const instance = axios.create({
     baseURL: "https://quotes.stormconsultancy.co.uk/",
     httpsAgent: new https.Agent({
@@ -9,10 +14,5 @@ exports.handler = async event => {
     })
   });
 
-  const quotes = await instance.get("random.json", { method: "POST" });
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify(quotes)
-  };
+  const quotes = await instance.get("random.json", { method: "POST" }).data;
 };
