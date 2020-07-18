@@ -1,0 +1,12 @@
+.quote-container {
+  text-align: center;
+}
+
+.quote {
+  font-size: 4em;
+}
+
+.author {
+  font-size: 2em;
+  font-weight: 300;
+}

@@ -1,0 +1,29 @@
+.refresh-button {
+  font-size: 1.2em;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+
+  border-width: 0;
+  border-radius: 0;
+
+  padding: 5px 10px;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+
+  transition: background-color 0.1s ease-in-out;
+
+  outline: none;
+}
+
+.refresh-button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+
+  transition: background-color 0.1s ease-in-out;
+}
+
+.refresh-button:active {
+  background-color: rgba(255, 255, 255, 0.6);
+
+  transition: background-color 0.1s ease-in-out;
+}
