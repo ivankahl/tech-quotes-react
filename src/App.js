@@ -8,10 +8,31 @@ import Quote from "./components/Quote";
 import RefreshButton from "./components/RefreshButton";
 
 export default class App extends React.Component {
-  async retrieveQuote() {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      quotes: [],
+      selectedQuote: 0
+    };
+  }
+
+  async retrieveQuotes() {
     const response = await axios.get("/.netlify/functions/getQuotes");
 
-    console.log(response.data);
+    this.setState({
+      quotes: response.data
+    });
+
+    this.chooseRandomQuote();
+  }
+
+  chooseRandomQuote() {
+    const quoteCount = this.state.quotes.length;
+
+    this.setState({
+      selectedQuote: Math.floor(Math.random() * quoteCount)
+    });
   }
 
   render() {
