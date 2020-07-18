@@ -12,14 +12,12 @@ exports.handler = (event, context, callback) => {
       response.on("end", () => {
         callback(null, {
           statusCode: 200,
-          body: data
+          body: data,
+          headers: { "Content-Type": "application/json" }
         });
       });
     })
     .on("error", err => {
-      callback(null, {
-        statusCode: 500,
-        body: err.message
-      });
+      callback(err);
     });
 };
