@@ -9,9 +9,7 @@ import RefreshButton from "./components/RefreshButton";
 
 export default class App extends React.Component {
   async retrieveQuote() {
-    const response = await axios.get(
-      "https://quotes.stormconsultancy.co.uk/random.json"
-    );
+    const response = await axios.get("");
 
     console.log(response.data);
   }
