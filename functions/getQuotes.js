@@ -12,7 +12,7 @@ exports.handler = (event, context, callback) => {
       response.on("end", () => {
         callback(null, {
           statusCode: 200,
-          body: JSON.parse(data).explanation
+          body: data
         });
       });
     })
