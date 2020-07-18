@@ -40,6 +40,8 @@ export default class App extends React.Component {
   render() {
     const selectedQuote = this.state.quotes[this.state.selectedQuote];
 
+    if (!selectedQuote) selectedQuote = { quote: "", author: "" };
+
     return (
       <Fragment>
         <RefreshButton onClick={this.chooseRandomQuote}>Refresh</RefreshButton>
