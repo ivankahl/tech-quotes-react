@@ -44,7 +44,9 @@ export default class App extends React.Component {
 
     return (
       <Fragment>
-        <RefreshButton onClick={this.chooseRandomQuote}>Refresh</RefreshButton>
+        <RefreshButton onClick={() => this.chooseRandomQuote()}>
+          Refresh
+        </RefreshButton>
         <CentreScreenContainer>
           <Quote quote={selectedQuote.quote} author={selectedQuote.author} />
         </CentreScreenContainer>
