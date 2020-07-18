@@ -15,6 +15,8 @@ export default class App extends React.Component {
       quotes: [],
       selectedQuote: 0
     };
+
+    this.retrieveQuotes();
   }
 
   async retrieveQuotes() {
@@ -36,11 +38,13 @@ export default class App extends React.Component {
   }
 
   render() {
+    const selectedQuote = this.state.quotes[this.state.selectedQuote];
+
     return (
       <Fragment>
-        <RefreshButton onClick={this.retrieveQuote}>Refresh</RefreshButton>
+        <RefreshButton onClick={this.chooseRandomQuote}>Refresh</RefreshButton>
         <CentreScreenContainer>
-          <Quote quote="Hello World" author="Ivan Kahl" />
+          <Quote quote={selectedQuote.quote} author={selectedQuote.author} />
         </CentreScreenContainer>
       </Fragment>
     );
