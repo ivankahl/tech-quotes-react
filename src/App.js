@@ -38,7 +38,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const selectedQuote = this.state.quotes[this.state.selectedQuote];
+    let selectedQuote = this.state.quotes[this.state.selectedQuote];
 
     if (!selectedQuote) selectedQuote = { quote: "", author: "" };
 
