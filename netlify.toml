@@ -4,3 +4,4 @@
 [[redirects]]
   from = "/api/quotes"
   to = "/.netlify/functions/getQuotes"
+  status = 200
