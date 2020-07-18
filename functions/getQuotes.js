@@ -1,18 +1,25 @@
-const axios = require("axios");
-const https = require("https");
+const http = require("http");
 
-exports.handler = async event => {
-  return {
-    statusCode: 200,
-    body: "Test"
-  };
+exports.handler = (event, context, callback) => {
+  http
+    .get("http://quotes.stormconsultancy.co.uk/quotes.json", response => {
+      let data = "";
 
-  const instance = axios.create({
-    baseURL: "https://quotes.stormconsultancy.co.uk/",
-    httpsAgent: new https.Agent({
-      rejectUnauthorized: false
+      response.on("data", chunk => {
+        data += chunk;
+      });
+
+      response.on("end", () => {
+        callback(null, {
+          statusCode: 200,
+          body: JSON.parse(data).explanation
+        });
+      });
     })
-  });
-
-  const quotes = await instance.get("random.json", { method: "POST" }).data;
+    .on("error", err => {
+      callback(null, {
+        statusCode: 500,
+        body: err.message
+      });
+    });
 };
